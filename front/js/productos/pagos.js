@@ -1,0 +1,23 @@
+function pedido() {
+  const memoria = JSON.parse(localStorage.getItem("Bebidas")) || [];
+
+  if (memoria.length === 0) {
+    alert("Tu carrito está vacío");
+    return;
+  }
+
+  const telefono = "+5493435618314";
+  let mensaje = "¡Hola! Me gustaría realizar el siguiente pedido Nommade:%0A";
+  let total = 0;
+
+  memoria.forEach((producto) => {
+    const subtotal = producto.precio * producto.cantidad;
+    mensaje += `-${producto.nombre} --- Cantidad del producto: ${producto.cantidad}%0A`;
+    total += subtotal;
+  });
+
+  mensaje += `Total a pagar: $${total}`;
+
+  const url = `https://wa.me/${telefono}?text=${mensaje}`;
+  window.open(url, "_blank");
+}

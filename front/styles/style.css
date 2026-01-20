@@ -1,0 +1,121 @@
+body {
+  font-family: "Source Serif 4", serif;
+}
+body header {
+  color: #c9a83f;
+  background-color: black;
+  border-bottom: 2px solid #c9a83f;
+  font-weight: bold;
+}
+body header nav .navbar-brand {
+  color: #c9a83f;
+}
+body header nav .navbar-brand:hover {
+  color: rgb(158, 164, 178);
+  transition: 0.2s ease;
+}
+@media (min-width: 768px) {
+  body header nav .navbar-brand {
+    font-size: 50px;
+  }
+}
+@media (min-width: 992px) {
+  body header nav .navbar-brand {
+    font-size: 70px;
+  }
+}
+body header nav ul {
+  gap: 20px;
+}
+body header nav ul .nav-link {
+  font-size: 20px;
+  color: #c9a83f;
+}
+body header nav ul .nav-link:hover {
+  color: rgb(158, 164, 178);
+  transition: 0.2s ease;
+}
+body main {
+  color: #c9a83f;
+  background-color: black;
+  padding-bottom: 30px;
+}
+body main table .thead-th {
+  background-color: #c9a83f;
+}
+body main .btn-warning:hover {
+  background-color: rgb(158, 164, 178);
+  transition: 0.2s ease;
+  border-color: rgb(158, 164, 178);
+}
+body main .form-section {
+  display: flex;
+  justify-content: center;
+}
+body main .form-section .form-div {
+  width: 60%;
+  border: 2px solid #c9a83f;
+  background-color: rgba(135, 119, 67, 0.4039215686);
+}
+body main .form-section .form-div p a {
+  color: #c9a83f;
+  text-decoration: none;
+}
+body main .form-section .form-div p a:hover {
+  color: rgb(158, 164, 178);
+  transition: 0.2s ease;
+}
+body main .form-section .form-div form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+body main .form-section .form-div form input {
+  width: 50%;
+}
+body main .form-section .form-div form button {
+  width: 20%;
+}
+body main .form-section .form-div form .error {
+  display: none;
+}
+body main section {
+  border-bottom: 2px solid #c9a83f;
+  padding-bottom: 30px;
+  font-weight: bold;
+}
+body main section h1 {
+  font-size: 50px;
+}
+body main section h2 {
+  font-size: 50px;
+}
+body main section p {
+  font-size: 30px;
+}
+body main section .subtitulo-index {
+  font-size: 40px;
+}
+body main section .lista-index {
+  font-size: 30px;
+}
+body main section label {
+  font-size: 25px;
+}
+body main .card {
+  color: #c9a83f;
+  background-color: black;
+}
+
+footer {
+  color: #c9a83f;
+  background-color: black;
+  border-top: 2px solid #c9a83f;
+  padding-top: 20px;
+}
+footer div h1 {
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */

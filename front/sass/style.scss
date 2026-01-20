@@ -1,0 +1,146 @@
+$black-color: black;
+$hover-color: rgb(158, 164, 178);
+$gold-color: #c9a83f;
+$gold-color-form: #87774367;
+$font-main: "Source Serif 4", serif;
+
+@mixin hover-effect {
+  color: $hover-color;
+  transition: 0.2s ease;
+}
+
+body {
+  font-family: $font-main;
+  header {
+    color: $gold-color;
+    background-color: $black-color;
+    border-bottom: 2px solid $gold-color;
+    font-weight: bold;
+    nav {
+      .navbar-brand {
+        color: $gold-color;
+
+        &:hover {
+          @include hover-effect;
+        }
+
+        @media (min-width: 768px) {
+          font-size: 50px;
+        }
+        @media (min-width: 992px) {
+          font-size: 70px;
+        }
+      }
+
+      ul {
+        gap: 20px;
+        .nav-link {
+          font-size: 20px;
+          color: $gold-color;
+          &:hover {
+            @include hover-effect;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    color: $gold-color;
+    background-color: $black-color;
+    padding-bottom: 30px;
+    table .thead-th {
+      background-color: $gold-color;
+    }
+    .btn-warning:hover {
+      background-color: $hover-color;
+      transition: 0.2s ease;
+      border-color: $hover-color;
+    }
+
+    .form-section {
+      display: flex;
+      justify-content: center;
+
+      .form-div {
+        width: 60%;
+        border: 2px solid $gold-color;
+        background-color: $gold-color-form;
+
+        p a {
+          color: $gold-color;
+          text-decoration: none;
+          &:hover {
+            @include hover-effect;
+          }
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+          align-items: center;
+
+          input {
+            width: 50%;
+          }
+
+          button {
+            width: 20%;
+          }
+
+          .error {
+            display: none;
+          }
+        }
+      }
+    }
+
+    section {
+      border-bottom: 2px solid $gold-color;
+      padding-bottom: 30px;
+      font-weight: bold;
+
+      h1 {
+        font-size: 50px;
+      }
+
+      h2 {
+        font-size: 50px;
+      }
+
+      p {
+        font-size: 30px;
+      }
+
+      .subtitulo-index {
+        font-size: 40px;
+      }
+
+      .lista-index {
+        font-size: 30px;
+      }
+
+      label {
+        font-size: 25px;
+      }
+    }
+
+    .card {
+      color: $gold-color;
+      background-color: $black-color;
+    }
+  }
+}
+
+footer {
+  color: $gold-color;
+  background-color: $black-color;
+  border-top: 2px solid $gold-color;
+  padding-top: 20px;
+  div {
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
