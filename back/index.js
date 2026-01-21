@@ -1,10 +1,13 @@
 import express from "express";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import { getConnection } from "./db/database.js";
 dotenv.config({ debug: true });
 const app = express();
+import { methods as authentication } from "./src/authentication.js";
+import { methods as authorization } from "./src/authorization.js";
 
 // Middlewares
 app.use(morgan("dev"));
@@ -14,6 +17,7 @@ app.use(
     origin: ["http://127.0.0.1:5500", "http://127.0.0.1:5501"],
   }),
 );
+app.use(cookieParser());
 
 // Puerto
 const PORT = process.env.PORT;
@@ -23,7 +27,7 @@ app.listen(PORT, () => {
 });
 
 // Rutas
-app.get("/", async (req, res) => {
+app.get("/", authorization.publico, async (req, res) => {
   res.send("Mensaje recibido");
 });
 
@@ -40,3 +44,6 @@ app.post("/carrito/comprar", async (req, res) => {
     res.sendStatus(400);
   }
 });
+
+app.post("/register", authentication.register);
+app.post("/login", authentication.login);
