@@ -91,6 +91,10 @@ body {
 
           .error {
             display: none;
+
+            &.visible {
+              display: block;
+            }
           }
         }
       }

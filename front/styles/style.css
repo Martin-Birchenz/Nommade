@@ -80,6 +80,9 @@ body main .form-section .form-div form button {
 body main .form-section .form-div form .error {
   display: none;
 }
+body main .form-section .form-div form .error.visible {
+  display: block;
+}
 body main section {
   border-bottom: 2px solid #c9a83f;
   padding-bottom: 30px;

@@ -20,12 +20,12 @@ function cookie(req) {
   try {
     const cookieJWT = req.headers.cookie
       .split("; ")
-      .find((cookie) => cookie.startWith("jwt="))
+      .find((cookie) => cookie.starstWith("jwt="))
       .slice(4);
     console.log("Cookie", cookieJWT);
     const decodificacion = jsonWebToken.verify(
       cookieJWT,
-      procces.env.JWT_SECRET,
+      process.env.JWT_SECRET,
     );
     console.log(decodificacion);
     const usuario = usuarios.find(

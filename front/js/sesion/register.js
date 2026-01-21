@@ -4,19 +4,27 @@ document
   .getElementById("register-form")
   .addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log(e);
+
+    const user = document.getElementById("user").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
     const res = await fetch("http://localhost:3000/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
-        user: e.target.children.user.value,
-        email: e.target.children.email.value,
-        password: e.target.children.password.value,
+        user,
+        email,
+        password,
       }),
     });
-    if (!res.ok) return mensajeError.classList.toggle("error", false);
+    if (!res.ok) {
+      mensajeError.classList.add("visible");
+      return;
+    }
     const resJson = await res.json();
     if (resJson.redirect) {
       window.location.href = resJson.redirect;
