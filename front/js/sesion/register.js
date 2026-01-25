@@ -14,12 +14,12 @@ document
       headers: {
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({
         user,
         email,
         password,
       }),
+      credentials: "include",
     });
     if (!res.ok) {
       mensajeError.classList.add("visible");

@@ -1,41 +1,46 @@
 import jsonWebToken from "jsonwebtoken";
 import dotenv from "dotenv";
-import { usuarios } from "./authentication.js";
+import { getConnection } from "../db/database.js";
 
 dotenv.config();
 
-function admin(req, res, next) {
-  const logueado = cookie(req);
+async function admin(req, res, next) {
+  const logueado = await cookie(req);
   if (logueado) return next();
+  return res.redirect("/login");
+}
+
+async function publico(req, res, next) {
+  const logueado = await cookie(req);
+  if (!logueado) return next();
   return res.redirect("/");
 }
 
-function publico(req, res, next) {
-  const logueado = cookie(req);
-  if (logueado) return next();
-  return res.redirect("/admin");
-}
-
-function cookie(req) {
+async function cookie(req) {
   try {
-    const cookieJWT = req.headers.cookie
-      .split("; ")
-      .find((cookie) => cookie.starstWith("jwt="))
-      .slice(4);
+    const cookieJWT = req.cookies.jwt;
+
+    if (!cookieJWT) return false;
+
     console.log("Cookie", cookieJWT);
+
     const decodificacion = jsonWebToken.verify(
       cookieJWT,
       process.env.JWT_SECRET,
     );
+
     console.log(decodificacion);
-    const usuario = usuarios.find(
-      (usuario) => usuario.user === decodificacion.user,
+
+    const connection = await getConnection();
+
+    const usuarios = await connection.query(
+      "SELECT * FROM usuarios WHERE user = ?",
+      [decodificacion.user],
     );
-    if (!usuario) {
-      return false;
-    } else {
-      return true;
-    }
+
+    const usuario = usuarios[0];
+
+    return !!usuario;
   } catch (error) {
     return false;
   }
