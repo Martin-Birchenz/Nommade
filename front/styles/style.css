@@ -88,6 +88,17 @@ body main section {
   padding-bottom: 30px;
   font-weight: bold;
 }
+body main section .div-novedades div {
+  display: flex;
+  align-items: center;
+}
+body main section .div-novedades div img {
+  width: 50%;
+  border: 2px solid #c9a83f;
+}
+body main section .tabla-responsive table thead tr th {
+  background-color: #c9a83f;
+}
 body main section .div-productos-inicio {
   display: flex;
   align-items: center;

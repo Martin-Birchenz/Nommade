@@ -11,8 +11,9 @@ function pedido() {
   let total = 0;
 
   memoria.forEach((producto) => {
+    const tipoNombre = producto.nombre || producto.promo;
     const subtotal = producto.precio * producto.cantidad;
-    mensaje += `-${producto.nombre} --- Cantidad del producto: ${producto.cantidad}%0A`;
+    mensaje += `-${tipoNombre} --- Cantidad del producto: ${producto.cantidad}%0A`;
     total += subtotal;
   });
 

@@ -32,11 +32,13 @@ function crearTarjetasProductos() {
     const body = document.getElementById("body-table");
 
     productos.forEach((producto) => {
+      const tipoNombre = producto.nombre || producto.promo;
+
       // Creamos un tr para cada producto
       const filaProducto = document.createElement("tr");
       // Le agregamos el html correspondiente
       filaProducto.innerHTML = `   
-            <td scope="row"> ${producto.nombre} </td>
+            <td scope="row"> ${tipoNombre} </td>
             <td>$${producto.precio}</td>
             <td><button class="restar">-</button> <span class="cantidad"> ${
               producto.cantidad

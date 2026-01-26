@@ -106,6 +106,30 @@ body {
       padding-bottom: 30px;
       font-weight: bold;
 
+      .div-novedades {
+        div {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 50%;
+            border: 2px solid $gold-color;
+          }
+        }
+      }
+
+      .tabla-responsive {
+        table {
+          thead {
+            tr {
+              th {
+                background-color: $gold-color;
+              }
+            }
+          }
+        }
+      }
+
       .div-productos-inicio {
         display: flex;
         align-items: center;

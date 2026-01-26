@@ -3,8 +3,12 @@ function agregarCarrito(producto) {
   // Buscamos si ya hay algo en el LocalStorage. Si no hay nada, memoria será un array vacío
   const memoria = JSON.parse(localStorage.getItem("Bebidas")) || [];
 
+  const promo_producto = producto.nombre || producto.promo;
+
   // Buscamos si el producto al que hicimos clic ya está en la lista
-  const indiceProducto = memoria.findIndex((item) => item.id === producto.id);
+  const indiceProducto = memoria.findIndex(
+    (item) => (item.nombre || item.promo) === promo_producto,
+  );
 
   if (indiceProducto === -1) {
     // Si no está, le agregamos la propiedad cantidad = 1 y lo metemos al array
@@ -52,7 +56,7 @@ function actualizarContadorCarrito() {
   if (memoria && memoria.length > 0) {
     const cuenta = memoria.reduce(
       (acum, current) => acum + current.cantidad,
-      0
+      0,
     );
     contadorCarrito.innerText = cuenta;
   } else {

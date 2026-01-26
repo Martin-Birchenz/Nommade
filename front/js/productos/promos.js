@@ -11,7 +11,7 @@ async function cargarPromos() {
       const fila = document.createElement("tr");
       fila.innerHTML = `
                 <td> ${producto.promo} </td>
-                <td> ${producto.precio} </td>
+                <td> $${producto.precio} </td>
                 <td>
                     <button class="btn btn-warning"> Agregar al carrito </button>
                 </td>
