@@ -88,6 +88,20 @@ body main section {
   padding-bottom: 30px;
   font-weight: bold;
 }
+body main section .div-productos-inicio {
+  display: flex;
+  align-items: center;
+}
+body main section .div-productos-inicio a {
+  width: 30%;
+  font-size: 20px;
+}
+body main section .img-fluid {
+  width: 40%;
+}
+body main section .data {
+  color: white;
+}
 body main section h1 {
   font-size: 50px;
 }

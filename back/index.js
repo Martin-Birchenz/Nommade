@@ -10,6 +10,7 @@ dotenv.config({ debug: true });
 const app = express();
 import { methods as authentication } from "./src/authentication.js";
 import { methods as authorization } from "./src/authorization.js";
+import { get } from "http";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,6 +47,22 @@ app.get("/", authorization.publico, async (req, res) => {});
 app.get("/productos", async (req, res) => {
   const connection = await getConnection();
   const result = await connection.query("SELECT * from productos");
+  res.json(result);
+});
+
+app.get("/productosInicio", async (req, res) => {
+  const connection = await getConnection();
+  const result = await connection.query(
+    "SELECT * FROM productos WHERE deleted = 0 LIMIT 3",
+  );
+  res.json(result);
+});
+
+app.get("/promociones", async (req, res) => {
+  const connection = await getConnection();
+  const result = await connection.query(
+    "SELECT * FROM promociones WHERE deleted = 0",
+  );
   res.json(result);
 });
 

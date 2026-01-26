@@ -49,6 +49,7 @@ body {
     color: $gold-color;
     background-color: $black-color;
     padding-bottom: 30px;
+
     table .thead-th {
       background-color: $gold-color;
     }
@@ -104,6 +105,24 @@ body {
       border-bottom: 2px solid $gold-color;
       padding-bottom: 30px;
       font-weight: bold;
+
+      .div-productos-inicio {
+        display: flex;
+        align-items: center;
+      }
+
+      .div-productos-inicio a {
+        width: 30%;
+        font-size: 20px;
+      }
+
+      .img-fluid {
+        width: 40%;
+      }
+
+      .data {
+        color: white;
+      }
 
       h1 {
         font-size: 50px;

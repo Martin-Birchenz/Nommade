@@ -20,7 +20,7 @@ function crearTarjetasProductos(productos) {
     // Agregamos la tarjeta al contenedor de tienda.html
     contenedorTarjetas.appendChild(nuevoProducto);
 
-    // Buscamos la etiquetay le damos la orden de escuchar el clic
+    // Buscamos la etiqueta y le damos la orden de escuchar el clic
     nuevoProducto
       .getElementsByTagName("a")[0]
       .addEventListener("click", () => agregarCarrito(producto));

@@ -1,5 +1,5 @@
 document.getElementById("cerrar-sesion").addEventListener("click", async () => {
-  const res = await fetch("http://127.0.0.1:3000/logout", {
+  const res = await fetch("/logout", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -7,6 +7,6 @@ document.getElementById("cerrar-sesion").addEventListener("click", async () => {
     credentials: "include",
   });
   if (res.ok) {
-    window.location.href = "/front/pages/sesion/login.html";
+    window.location.href = "/pages/sesion/login.html";
   }
 });

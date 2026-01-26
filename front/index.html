@@ -60,85 +60,39 @@
     <main class="container-fluid">
       <!-- Primera sección, filosofía, misión y más contenido -->
       <section>
-        <div class="container p-5">
-          <div class="card">
-            <div class="row">
-              <div class="col-sm-12 col-md-4 col-lg-4">
-                <img src="./public/navidad.jpeg" class="img-fluid" alt="Logo"/>
-              </div>
-              <div class="col-sm-12 col-md-8 col-lg-8">
-                <div class="card-body">
-                  <h1 class="card-title text-center">
-                    Nuestra filosofía 
-                  </h1>
-                  <p class="card-text">
-                    En Nommade, nos apasiona acercar las etiquetas más selectas a nuestros clientes. 
-                  </p>
-                  <h2 class="subtitulo-index">Tu éxito es nuestro brindis diario</h2>
-                  <ul class="lista-index">
-                    <li>Te ayudamos a optimizar tu carta de bebidas según el perfil de tus clientes</li>
-                    <li>Entregas garantizadas para que tu stock nunca se detenga</li>
-                    <li>Variedad de productos</li>
-                  </ul>
-                </div>
-              </div>
+        <div class="container-fluid p-5 text-center">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <img src="./public/img-home-7.jpg" class="img-fluid" alt="Logo"/>
+                <p class="text-center">Que el brindis esté a la altura de la ocasión.</p>
             </div>
-          </div>
         </div>
       </section>
 
       <!-- Segunda sección, productos -->
       <section class="container">
-        <h2 class="text-center py-5">Productos Nommade</h2>
+        <h2 class="text-center py-5">Algunos de nuestros productos Nommade</h2>
 
-        <div class="row g-5">
-          <div class="card text-center col-sm-12 col-md-6 col-lg-3">
-            <img src="./public/amargo-obrero.jpg" alt="Amargo obrero" class="card-img-top"/>
-            <div class="card-body">
-              <h3 class="card-title">Amargo obrero</h3>
-              <a href="./pages/compras.html" class="btn btn-warning">Agregar al carrito</a>
-            </div>
-          </div>
+        <div class="row g-5" id="productos-container-inicio"></div>
 
-          <div class="card text-center col-sm-12 col-md-6 col-lg-3">
-            <img src="./public/fernet.jpg" alt="Fernet" class="card-img-top" />
-            <div class="card-body">
-              <h3 class="card-title">Fernet</h3>
-              <a href="./pages/compras.html" class="btn btn-warning">Agregar al carrito</a>
-            </div>
-          </div>
-
-          <div class="card text-center col-md-6 col-lg-3">
-            <img src="./public/gancia.jpg" alt="Gancia" class="card-img-top" />
-            <div class="card-body">
-              <h3 class="card-title">Gancia</h3>
-              <a href="./pages/compras.html" class="btn btn-warning">Agregar al carrito</a>
-            </div>
-          </div>
-
-          <div class="card col-md-6 col-lg-3 m-auto">
-            <a href="./pages/tienda.html" class="btn btn-warning">Ver más productos...</a>
-          </div>
+        <div class="card col-lg-12 mt-5 div-productos-inicio">
+          <a href="./pages/tienda.html" class="btn btn-warning">Ver más productos...</a>
         </div>
+
       </section>
 
       <section>
-        <h2 class="text-center pt-5">Promociones Nommade</h2>
-        <div class="row">
-          
-            <div class="card-body col-sm-12 col-md-4 col-lg-4 text-center mt-5 mb-5">
-              <img src="./public/lista-de-precios.jpeg" width="300px" alt="Promociones Nommade"/>
-            </div>
-            <div class="card-body col-sm-12 col-md-4 col-lg-4 text-center mt-5 mb-5">
-              <img src="./public/navidad-descuentos.jpeg" width="300px" alt="Promociones Nommade"/>
-            </div>
-            <div class="card-body col-sm-12 col-md-4 col-lg-4 text-center mt-5 mb-5">
-              <img src="./public/logo 2.jpg" width="300px" alt="Promociones Nommade"/>
-            </div>
-            <div class="col-12 text-center mt-5 mb-5">
-              <a href="#Promos" class="btn btn-warning">Ver las promos Nommade</a>
-            </div>
-         
+        <h2 class="text-center pt-5">Nuestras promociones Nommade</h2>
+        <div class="tabla-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Promoción</th>
+                <th>Precio</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="tabla-promos"></tbody>
+          </table>
         </div>
       </section>
 
@@ -212,8 +166,11 @@
 
     <!-- Script de Bootstrap -->
 
+    <script src="./js/productos/productosInicio.js"></script>
+    <script src="./js/productos/carrito.js"></script>
     <script src="./js/sesion/logout.js"></script>
     <script src="./js/consultas.js" ></script>
+    <script src="./js/productos/promos.js" ></script>
 
      <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
