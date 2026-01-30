@@ -31,7 +31,7 @@ Este proyecto integra un desarrollo **Full Stack** con arquitectura cliente-serv
 
 # Limitaciones:
 
-1.  **Sanitización de Entradas:** Falta implementar una capa de validación más estricta.
+1.  **Seguridad incompleta:** Falta implementar una capa de validación más estricta. Al no tener una seguridad 100% asegurada, la página está expuesta a ataques, y por este motivo no es buen momento para un despliegue de ella.
 2.  **Despliegue:** Debido a que el proyecto cuenta con un backend dinámico, GitHub Pages no es compatible. El siguiente paso es el despliegue.
 3.  **Pasarela de Pago:** La integración con APIs reales es la funcionalidad pendiente.
 
