@@ -6,11 +6,12 @@ import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import { getConnection } from "./db/database.js";
-dotenv.config({ debug: true });
-const app = express();
 import { methods as authentication } from "./src/authentication.js";
 import { methods as authorization } from "./src/authorization.js";
 import { get } from "http";
+
+dotenv.config({ debug: true });
+const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

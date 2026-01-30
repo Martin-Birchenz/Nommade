@@ -1,15 +1,17 @@
-const mensajeError = document.getElementsByClassName("error")[0];
+const mensajeError = document.querySelector(".error-msg");
+const registerForm = document.getElementById("register-form");
 
-document
-  .getElementById("register-form")
-  .addEventListener("submit", async (e) => {
-    e.preventDefault();
+registerForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const user = document.getElementById("user").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  const user = document.getElementById("user").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-    const res = await fetch("http://localhost:3000/register", {
+  mensajeError.classList.add("d-none");
+
+  try {
+    const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,12 +23,18 @@ document
       }),
       credentials: "include",
     });
+
     if (!res.ok) {
-      mensajeError.classList.add("visible");
+      mensajeError.classList.remove("d-none");
       return;
     }
+
     const resJson = await res.json();
+
     if (resJson.redirect) {
       window.location.href = resJson.redirect;
     }
-  });
+  } catch (error) {
+    console.log(error);
+  }
+});

@@ -5,11 +5,10 @@ import { getConnection } from "../db/database.js";
 
 dotenv.config();
 
-const expira = parseInt(process.env.JWT_COOKIE_EXP) || 1;
-
 async function login(req, res) {
   const email = req.body.email;
   const password = req.body.password;
+
   if (!email || !password) {
     return res
       .status(400)
@@ -29,6 +28,8 @@ async function login(req, res) {
         .status(400)
         .send({ status: "Error", message: "Error durante login" });
     }
+
+    const expira = parseInt(process.env.JWT_COOKIE_EXP) || 1;
 
     const token = jsonWebToken.sign(
       { user: usuario.user },
@@ -89,6 +90,8 @@ async function register(req, res) {
       "INSERT INTO usuarios (user, email, pass) VALUES (?, ?, ?)",
       [user, email, hashPass],
     );
+
+    const expira = parseInt(process.env.JWT_COOKIE_EXP) || 1;
 
     const token = jsonWebToken.sign({ user: user }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXP,
