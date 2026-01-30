@@ -4,15 +4,17 @@ function crearTarjetasProductos(productos) {
   productos.forEach((producto) => {
     // Creamos el div para la tarjeta de la bebida
     const nuevoProducto = document.createElement("div");
-    nuevoProducto.classList = "col-sm-12 col-md-4 col-lg-4";
+    nuevoProducto.classList = "col-12 col-sm-6 col-lg-4";
     // Le agregamos el html correspondiente
     nuevoProducto.innerHTML = `
-    <div class="card p-5">
-        <img src="../public/${producto.url_img}" class="card-img" alt="${producto.nombre}" />
-        <div class="card-body">
-            <h2 class="card-title"> ${producto.nombre} </h2>
-            <p class="card-text">$${producto.precio} c/u</p>
-            <a class="btn btn-warning">Agregar al carrito</a>
+    <div class="card h-100 bg-dark text-light border-warning shadow">
+        <img src="../public/${producto.url_img}" class="card-img-top p-2" alt="${producto.nombre}" />
+        <div class="card-body d-flex flex-column justify-content-between text-center">
+            <div>
+              <h5 class="card-title fw-bold"> ${producto.nombre} </h5>
+              <p class="card-text fs-5 text-warning">$${producto.precio} c/u</p>
+              <a class="btn btn-warning fw-bold mt-3">Agregar al carrito</a>
+            </div>
         </div>
     </div>
     `;

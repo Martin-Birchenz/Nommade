@@ -5,14 +5,16 @@ const contenedorTarjetasInicio = document.getElementById(
 function crearTarjetasProductosInicio(productos) {
   productos.forEach((producto) => {
     const nuevoProducto = document.createElement("div");
-    nuevoProducto.classList = "card text-center col-sm-12 col-md-6 col-lg-4";
+    nuevoProducto.classList = "col-12 col-md-6 col-lg-4";
 
     nuevoProducto.innerHTML = `  
-            <img src="./public/${producto.url_img}" alt="${producto.nombre}" class="card-img-top"/>
-            <div class="card-body">
-                <h3 class="card-title"> ${producto.nombre} </h3>
-                <a class="btn btn-warning">Agregar al carrito</a>
-            </div>
+      <div class="card h-100 text center border-warning bg-dark">
+        <img src="./public/${producto.url_img}" alt="${producto.nombre}" class="card-img-top p-2"/>
+        <div class="card-body d-flex flex-column">
+            <h2 class="card-title text-center text-light"> ${producto.nombre} </h2>
+            <a class="btn btn-warning fw-bold mt-auto">Agregar al carrito</a>
+        </div>
+      </div>
     `;
 
     contenedorTarjetasInicio.appendChild(nuevoProducto);

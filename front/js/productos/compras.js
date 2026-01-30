@@ -1,6 +1,4 @@
 const contenedorTarjetas = document.getElementById("productos-container");
-const unidadesElement = document.getElementById("unidades");
-const precioElement = document.getElementById("precio");
 const reiniciarCarritoElement = document.getElementById("reiniciar-carrito");
 
 // Llamamos a la función para que se ejecute al cargar la página
@@ -15,17 +13,24 @@ function crearTarjetasProductos() {
 
   if (productos && productos.length > 0) {
     contenedorTarjetas.innerHTML = `
-    <table class="table">
-        <thead>
+    <table class="table table-dark table-hover aling-middle border-warning mb-0">
+        <thead class="table-warning text-dark">
           <tr>
-            <th class="thead-th" scope="col"> Nombre </th>
-            <th class="thead-th" scope="col"> Precio </th>
-            <th class="thead-th" scope="col"> Cantidad </th>
-            <th class="thead-th" scope="col">Total por producto</th>
+            <th class="py-3 px-4" scope="col"> Producto </th>
+            <th class="py-3 px-4 text-center" scope="col"> Cantidad </th>
+            <th class="py-3 px-4 text-end" scope="col"> Precio Unit. </th>
+            <th class="py-3 px-4 text-end" scope="col"> Subtotal </th>
           </tr>
         </thead>
         <tbody id="body-table">
         </tbody>
+        <tfoot class="border-top border-warning">
+          <tr>
+            <td colspan="4" class="text-end fs-5 fw-bold text-light py-4">
+              TOTAL A PAGAR: <span id="precio" class="text-warning">0</span>
+            </td>
+          </tr>
+        </tfoot>
     </table>
     `;
 
@@ -38,12 +43,12 @@ function crearTarjetasProductos() {
       const filaProducto = document.createElement("tr");
       // Le agregamos el html correspondiente
       filaProducto.innerHTML = `   
-            <td scope="row"> ${tipoNombre} </td>
-            <td>$${producto.precio}</td>
-            <td><button class="restar">-</button> <span class="cantidad"> ${
+            <td class="px-4 fw-bold text-warning"> ${tipoNombre} </td>
+            <td class="text-center"><button class="restar">-</button> <span class="cantidad"> ${
               producto.cantidad
             } </span> <button class="sumar">+</button></td>
-            <td>$${producto.cantidad * producto.precio}</td>
+            <td class="text-end">$${producto.precio}</td>
+            <td class="text-end">$${producto.cantidad * producto.precio}</td>
         `;
 
       // Agregamos el html correspondiente
@@ -64,31 +69,37 @@ function crearTarjetasProductos() {
       });
     });
   } else {
-    contenedorTarjetas.innerHTML = ` <p id="carrito-vacio" class="text-center">¡El carrito está vacío! Agrega productos</p> `;
+    contenedorTarjetas.innerHTML = ` <p id="carrito-vacio" class="text-center text-warning fw-bold fs-1">¡El carrito está vacío! Agrega productos</p> `;
   }
 }
 
 function actualizar() {
   const productos = JSON.parse(localStorage.getItem("Bebidas")) || [];
-  let unidades = 0;
-  let precio = 0;
+  let precioTotal = 0;
 
   if (productos.length > 0) {
     productos.forEach((producto) => {
-      unidades += producto.cantidad;
-      precio += producto.precio * producto.cantidad;
+      precioTotal += producto.precio * producto.cantidad;
     });
   }
-  unidadesElement.innerText = `${unidades}`;
-  precioElement.innerText = `$${precio}`;
+
+  const precioElement = document.getElementById("precio");
+
+  if (precioElement) {
+    precioElement.innerText = `$${precioTotal}`;
+  }
 }
 
 reiniciarCarritoElement.addEventListener("click", reiniciarCarrito);
 function reiniciarCarrito() {
-  localStorage.removeItem("Bebidas");
-  actualizar();
-  crearTarjetasProductos();
-  actualizarContadorCarrito();
+  if (confirm("¿Estás seguro de que querés vaciar tu carrito de Nommade?")) {
+    localStorage.removeItem("Bebidas");
+    crearTarjetasProductos();
+    actualizar();
+  }
+  if (typeof actualizarContadorCarrito === "function") {
+    actualizarContadorCarrito();
+  }
 }
 
 document.getElementById("comprar").addEventListener("click", async () => {

@@ -10,10 +10,10 @@ async function cargarPromos() {
     promociones.forEach((producto) => {
       const fila = document.createElement("tr");
       fila.innerHTML = `
-                <td> ${producto.promo} </td>
-                <td> $${producto.precio} </td>
-                <td>
-                    <button class="btn btn-warning"> Agregar al carrito </button>
+                <td class="px-4 fw-bold text-warning"> ${producto.promo} </td>
+                <td class="px-4"> $${producto.precio} </td>
+                <td class="text-center">
+                    <button class="btn btn-warning btn-sm fw-bold px-3"> Agregar al carrito </button>
                 </td>
             `;
       contenedor.appendChild(fila);

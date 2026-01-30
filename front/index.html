@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nommade oficial</title>
-    <link rel="icon" href="./public/logo sin titulo.png">
+    <title>Nommade | Venta de bebidas</title>
+    <meta name="description" content="En Nommade seleccionamos las etiquetas más exclusivas de bebidas.">
+    <link rel="icon" href="./public/logo-nommade.png">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -24,16 +25,32 @@
   <body>
     <!-- Header -->
     <header>
-      <nav class="navbar navbar-light navbar-expand-lg">
+      <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <!-- Logo y título -->
           <a href="index.html" class="navbar-brand">
-            <img src="./public/logo sin titulo.png" class="img-fluid" alt="Logo Nommade header" width="100px"/>
+            <img src="./public/logo-nommade.png" alt="Logo oficial de Nommade bebidas" width="80"/>
             NOMMADE
           </a>
 
+          <!-- Botón hamburguesa -->
+          <button
+            class="navbar-toggler bg-warning"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuNommade"
+            aria-controls="menuNommade"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+           <div
+            class="collapse navbar-collapse justify-content-end"
+            id="menuNommade">
+
           <!--Menú de navegación -->
-          <div class="justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a href="./index.html" class="nav-link">Inicio</a>
@@ -51,127 +68,277 @@
                 <a href="../front/pages/sesion/login.html" class="nav-link btn btn-warning" id="cerrar-sesion">Cerrar sesión</a>
               </li>
             </ul>
-          </div>
+          
         </div>
       </nav>
     </header>
 
     <!-- Contenido de la página -->
     <main class="container-fluid">
-      <!-- Primera sección, filosofía, misión y más contenido -->
-      <section>
-        <div class="container-fluid p-5 text-center">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-                <img src="./public/img-home-7.jpg" class="img-fluid" alt="Logo"/>
-                <p class="text-center">Que el brindis esté a la altura de la ocasión.</p>
+      <!-- Primera sección, la idea es dar una introducción con una imágen y un título -->
+      <section class="container py-5">
+        <div class="card bg-dark border-warning">
+          <div class="row g-0 align-items-center">
+            <div class="col-sm-12 col-md-4 d-flex justify-content-center p-4">
+              <img
+                src="./public/imagen-principal-nommade.jpg"
+                class="img-fluid"
+                alt="Imagen principal de Nommade: Selección de bebidas"
+              />
             </div>
+
+            <div class="col-sm-12 col-md-8">
+              <div class="card-body p-4">
+                <h1 class="card-title text-warning display-6 fw-bold">
+                  Tu éxito es nuestro brindis
+                </h1>
+                <p class="card-text fs-5 text-light fw-bold">
+                  En Nommade, nos apasiona acercar las etiquetas más selectas a
+                  nuestros clientes.
+                </p>
+                <p class="card-text fs-5 fw-bold">
+                  Un compromiso total con la puntualidad.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Segunda sección, productos -->
-      <section class="container">
-        <h2 class="text-center py-5">Algunos de nuestros productos Nommade</h2>
+      <section class="container py-5">
+        <h2 class="text-center text-warning fw-bold fs-1 mb-5">Algunos de nuestros productos Nommade</h2>
 
-        <div class="row g-5" id="productos-container-inicio"></div>
+        <div class="row g-4 justify-content-center" id="productos-container-inicio"></div>
 
-        <div class="card col-lg-12 mt-5 div-productos-inicio">
-          <a href="./pages/tienda.html" class="btn btn-warning">Ver más productos...</a>
+        <div class="col-12 text-center mt-5">
+          <a href="./pages/tienda.html" class="btn btn-warning px-5 fw-bold w-auto">Ver más productos...</a>
         </div>
-
       </section>
 
+      <!-- Tercera sección, las promos de Nommade -->
       <section>
-        <h2 class="text-center pt-5">Nuestras promociones Nommade</h2>
-        <div class="tabla-responsive">
-          <table class="table">
-            <thead>
+        <h2 class="text-center py-4 fw-bold fs-1 text-warning">
+          Nuestras promociones Nommade
+        </h2>
+        <div class="container table-responsive">
+          <table
+            class="table table-dark table-hover align-middle border-warning"
+          >
+            <thead class="table-light text-dark">
               <tr>
-                <th>Promoción</th>
-                <th>Precio</th>
-                <th></th>
+                <th scope="col" class="py-3 px-4">Promoción</th>
+                <th scope="col" class="py-3 px-4">Precio</th>
+                <th scope="col" class="py-3 px-4 text-center"></th>
               </tr>
             </thead>
-            <tbody id="tabla-promos"></tbody>
+            <tbody id="tabla-promos">
+            </tbody>
           </table>
         </div>
       </section>
 
-      <!-- Tercera sección, novedades de Nommade -->
-      <section class="container mt-5">
-        <h2 class="text-center">Novedades</h5>
+      <!-- Cuarta sección, las novedades que te trae Nommade --> 
+      <section class="container py-5">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10">
+            <div
+              id="carouselExampleCaptions"
+              class="carousel slide carousel-fade border border-warning rounded overflow-hidden shadow-lg"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselExampleCaptions"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
 
-        <div class="row div-novedades mt-5">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="./public/nuestro-nuevo-local.jpg"
+                    class="d-block w-100 custom-carousel-img"
+                    alt="Nuevo local Nommade"
+                  />
+                  <div class="carousel-caption d-md-block custom-caption">
+                    <h4 class="fw-bold text-warning text-uppercase">
+                      ¡Se viene nuestro local!
+                    </h4>
+                    <p class="fs-5">
+                      Próximamente tendremos nuestro nuevo punto de encuentro.
+                    </p>
+                  </div>
+                </div>
 
-          <div class="card col-sm-12 col-md-6 col-lg-6">
-            <img class="card-img-top" src="./public/fernesito.jpeg" alt="Los mejores precios en Nommade"/>
-            <div class="card-body">
-              <h3 class="card-title text-center">Disponibilidad 24/7</h3>
+                <div class="carousel-item">
+                  <img
+                    src="./public/delivery-nommade.jpg"
+                    class="d-block w-100 custom-carousel-img"
+                    alt="Envíos a domicilio Nommade"
+                  />
+                  <div class="carousel-caption d-md-block custom-caption">
+                    <h4 class="fw-bold text-warning text-uppercase">
+                      Envíos a domicilio
+                    </h4>
+                    <p class="fs-5">
+                      Llevamos tu pedido con eficacia a donde estés.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <img
+                    src="./public/a-donde-sea-que-vayas.jpg"
+                    class="d-block w-100 custom-carousel-img"
+                    alt="Acompañando momentos"
+                  />
+                  <div class="carousel-caption d-md-block custom-caption">
+                    <h4 class="fw-bold text-warning text-uppercase">
+                      Te acompañamos siempre
+                    </h4>
+                    <p class="fs-5">Tu éxito siempre será nuestro brindis.</p>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
             </div>
           </div>
-
-          <div class="card col-sm-12 col-md-6 col-lg-6">
-            <img class="card-img-top" src="./public/tel-nom.jpeg" alt="Tenemos sitio web"/>
-            <div class="card-body">
-              <h3 class="card-title text-center">¡Ya podes encargar por nuestra web!</h3>
-            </div>
-          </div>
-
-          <div class="card col-sm-12 col-md-12 col-lg-12 mt-5">
-            <img class="card-img-top" src="./public/img-home-9.jpg" alt="Proximamente, local Nommade"/>
-            <div class="card-body">
-              <h3 class="card-title text-center">¡Se viene nuestro local Nommade!</h3>
-            </div>
-          </div>
-
         </div>
       </section>
 
       <!-- Cuarta sección, formulario para que el cliente envíe su consulta -->
-      <section class="container mt-5">
-        <h2 class="text-center">
-          Contáctanos, te responderemos a la brevedad.
-        </h2>
-        <div>
-          <form id="form-consulta" class="text-center m-3">
-            <label class="form-label" for="name">Nombre y apellido:</label>
-            <input class="form-control" id="name" type="text" />
-            <label class="form-label" for="email">Correo electrónico:</label>
-            <input class="form-control" id="email" type="email" />
-            <label class="form-label" for="number">Número de teléfono:</label>
-            <input class="form-control" id="number" type="number" />
-            <label class="form-label" for="consulta">Describe tu consulta:</label>
-            <input class="form-control" id="consulta" type="text" />
-            <button type="submit" class="btn btn-warning my-5 p-3">Enviar</button>
-          </form>
-        </div>
+      <section class="container mt-5 py-5 border-top border-warning">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6">
+             <h2 class="text-center text-warning fw-bold mb-4">
+               Contáctanos, te responderemos a la brevedad.
+             </h2>
+            <form id="form-consulta" class="p-4 bg-dark rounded border border-warning shadow">
+
+            <div class="mb-3">
+              <label class="form-label text-warning fw-bold" for="name">Nombre y apellido:</label>
+              <input class="form-control bg-transparent text-light border-secondary" id="name" type="text" placeholder="Ingresa tu nombre y apellido" required/>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-warning fw-bold" for="email">Correo electrónico:</label>
+              <input class="form-control bg-transparent text-light border-secondary" id="email" type="email" placeholder="Ingresa tu correo electrónico" required/>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-warning fw-bold" for="number">Número de teléfono:</label>
+              <input class="form-control bg-transparent text-light border-secondary" id="number" type="tel" placeholder="Ingresa tu número de teléfono" />
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label text-warning fw-bold" for="consulta">Describe tu consulta:</label>
+              <textarea class="form-control bg-transparent text-light border-secondary" id="consulta" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-warning fw-bold px-5 py-2 w-auto">Enviar Mensaje</button>
+            </div>
+            </form>
+          </div>
+        </div>        
       </section>
     </main>
 
     <!-- Por último, el pie de página -->
-    <footer class="container-fluid">
-      <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center my-5">
-          <img src="./public/logo.jpg" alt="Logo de footer" width="200px" />
-        </div>
+    <footer class="container-fluid bg-dark text-light py-5 border-top border-warning">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12 text-center mb-4">
+            <img src="./public/logo-nommade.png" alt="Logo oficial de Nommade bebidas" width="180" class="border border-warning shadow" />
+          </div>
+          <div class="col-sm-12 col-md-4 text-center">
+            <h5 class="text-warning fw-bold mb-3">CONTACTOS</h5>
+            <p class="mb-1">
+              <a
+                href="https://instagram.com/nommadedrinks"
+                target="_blank"
+                class="text-decoration-none text-light footer-link"
+              >
+                <i class="fa-brands fa-instagram"></i> @nommadedrinks
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://wa.me/5493416150496"
+                target="_blank"
+                class="text-decoration-none text-light footer-link"
+              >
+                <i class="fa-solid fa-phone"></i> +54 9 3416 15-0496
+              </a>
+            </p>
+          </div>
 
-        <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-          <p class="h4">Contactos</p>
-          <p><i class="fa-brands fa-instagram"></i>  @nommadedrinks</p>
-          <p><i class="fa-solid fa-phone"></i>  +54-9-3416-15-0496</p>
-        </div>
-        <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-          <p class="h4">Donde nos encontramos</p>
-          <p>Nogoyá (Entre ríos) y alrededores, Rosario o Esperanza (Santa Fe)</p>
-          <p>Envíos a domicilio</p>
-        </div>
-        <div class="col-sm-12 col-md-4 col-lg-4 text-center">
-          <p class="h4">Todos los derechos reservados</p>
-          <p>Desarrollado por <strong>Birchenz Martín</strong> </p>
+          <div
+            class="col-sm-12 col-md-4 text-center border-start-md border-warning"
+          >
+            <h5 class="text-warning fw-bold mb-3">DÓNDE NOS ENCONTRAMOS</h5>
+            <p class="small px-lg-5">
+              Nogoyá (Entre Ríos), Rosario o Esperanza (Santa Fe).
+            </p>
+            <p class="badge bg-warning text-dark p-2">ENVÍOS A DOMICILIO</p>
+          </div>
+
+          <div class="col-sm-12 col-md-4 text-center">
+            <h5 class="text-warning fw-bold mb-3">LEGAL</h5>
+            <p class="small mb-1">
+              &copy; 2026 Nommade. Todos los derechos reservados.
+            </p>
+            <p class="small">
+              Desarrollado por:
+              <span class="fw-bold text-warning">Birchenz Martín</span>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
 
-    <!-- Script de Bootstrap -->
+    <!-- Script de Bootstrap y otros -->
 
     <script src="./js/productos/productosInicio.js"></script>
     <script src="./js/productos/promos.js" ></script>
