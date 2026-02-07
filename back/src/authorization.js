@@ -34,7 +34,7 @@ async function cookie(req) {
     const connection = await getConnection();
 
     const usuarios = await connection.query(
-      "SELECT * FROM usuarios WHERE user = ?",
+      "SELECT * FROM usuariosnommade WHERE user = ?",
       [decodificacion.user],
     );
 

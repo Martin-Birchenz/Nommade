@@ -47,23 +47,21 @@ app.get("/", authorization.publico, async (req, res) => {});
 
 app.get("/productos", async (req, res) => {
   const connection = await getConnection();
-  const result = await connection.query("SELECT * from productos");
+  const result = await connection.query("SELECT * from productosnommade");
   res.json(result);
 });
 
 app.get("/productosInicio", async (req, res) => {
   const connection = await getConnection();
   const result = await connection.query(
-    "SELECT * FROM productos WHERE deleted = 0 LIMIT 3",
+    "SELECT * FROM productosnommade LIMIT 3",
   );
   res.json(result);
 });
 
 app.get("/promociones", async (req, res) => {
   const connection = await getConnection();
-  const result = await connection.query(
-    "SELECT * FROM promociones WHERE deleted = 0",
-  );
+  const result = await connection.query("SELECT * FROM promocionesnommade");
   res.json(result);
 });
 
@@ -77,6 +75,10 @@ app.post("/carrito/comprar", async (req, res) => {
 
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../front/pages/sesion/login.html"));
+});
+
+app.get("/register", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/sesion/register.html"));
 });
 
 app.post("/register", authentication.register);

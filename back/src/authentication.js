@@ -18,7 +18,7 @@ async function login(req, res) {
   try {
     const connection = await getConnection();
     const usuarios = await connection.query(
-      "SELECT * FROM usuarios WHERE email = ?",
+      "SELECT * FROM usuariosnommade WHERE email = ?",
       [email],
     );
     const usuario = usuarios[0];
@@ -72,7 +72,7 @@ async function register(req, res) {
     const connection = await getConnection();
 
     const usuarioExiste = await connection.query(
-      "SELECT * FROM usuarios WHERE user = ?",
+      "SELECT * FROM usuariosnommade WHERE user = ?",
       [user],
     );
 
@@ -87,7 +87,7 @@ async function register(req, res) {
     const hashPass = await bcryptjs.hash(password, salt);
 
     await connection.query(
-      "INSERT INTO usuarios (user, email, pass) VALUES (?, ?, ?)",
+      "INSERT INTO usuariosnommade (user, email, pass) VALUES (?, ?, ?)",
       [user, email, hashPass],
     );
 
