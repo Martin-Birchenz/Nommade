@@ -18,7 +18,15 @@ async function publico(req, res, next) {
 
 async function cookie(req) {
   try {
+    console.log("------------");
+    console.log("Intentando validar acceso...");
+
     const cookieJWT = req.cookies.jwt;
+
+    console.log(
+      "Cookie recibida: ",
+      cookieJWT ? "SI (token presente)" : "NO (vacía)",
+    );
 
     if (!cookieJWT) return false;
 
@@ -29,7 +37,7 @@ async function cookie(req) {
       process.env.JWT_SECRET,
     );
 
-    console.log(decodificacion);
+    console.log("Token verificado: ", decodificacion);
 
     const connection = await getConnection();
 

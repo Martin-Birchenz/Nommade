@@ -11,9 +11,9 @@ function crearTarjetasProductos(productos) {
         <img src="../public/${producto.url_img}" class="card-img-top p-2" alt="${producto.nombre}" />
         <div class="card-body d-flex flex-column justify-content-between text-center">
             <div>
-              <h5 class="card-title fw-bold"> ${producto.nombre} </h5>
-              <p class="card-text fs-5 text-warning">$${producto.precio} c/u</p>
-              <a class="btn btn-warning fw-bold mt-3">Agregar al carrito</a>
+              <h2 class="card-title text-center text-light"> ${producto.nombre} </h2>
+              <p class="card-text fs-5 fw-bold">$${producto.precio} c/u</p>
+              <a class="btn btn-custom fs-5">Agregar al carrito</a>
             </div>
         </div>
     </div>

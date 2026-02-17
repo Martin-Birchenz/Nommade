@@ -12,7 +12,7 @@ function crearTarjetasProductosInicio(productos) {
         <img src="./public/${producto.url_img}" alt="${producto.nombre}" class="card-img-top p-2"/>
         <div class="card-body d-flex flex-column">
             <h2 class="card-title text-center text-light"> ${producto.nombre} </h2>
-            <a class="btn btn-warning fw-bold mt-auto">Agregar al carrito</a>
+            <a class="btn btn-custom fs-5">Agregar al carrito</a>
         </div>
       </div>
     `;

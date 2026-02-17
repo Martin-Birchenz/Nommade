@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nommade | Finalizá tu compra</title>
-    <meta name="description" content="Último paso, disfrutar.">
-    <link rel="icon" href="../public/logo-nommade.png">
+    <meta name="description" content="Último paso, disfrutar." />
+    <link rel="icon" href="../public/logo-nommade.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,68 +18,77 @@
       href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
 
   <body>
-    <!-- Header -->
-    <header>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <!-- Logo y título -->
-          <a href="index.html" class="navbar-brand">
-            <img src="../public/logo-nommade.png" alt="Logo oficial de Nommade bebidas" width="80"/>
-            NOMMADE
-          </a>
-
-          <!-- Botón hamburguesa -->
-          <button
-            class="navbar-toggler bg-warning"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menuNommade"
-            aria-controls="menuNommade"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-           <div
-            class="collapse navbar-collapse justify-content-end"
-            id="menuNommade">
-
-          <!--Menú de navegación -->
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a href="../index.html" class="nav-link">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a href="./tienda.html" class="nav-link">Productos</a>
-              </li>
-              <li class="nav-item">
-                <a href="./nosotros.html" class="nav-link">Nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a href="./compras.html" class="nav-link"><i class="fa-solid fa-cart-arrow-down"></i><span id="contador-carrito">0</span></a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/sesion/login.html" class="nav-link btn btn-warning" id="cerrar-sesion">Cerrar sesión</a>
-              </li>
-            </ul>
-          
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a href="/" class="navbar-brand fw-bold">
+          <img
+            src="../public/logo-nommade.png"
+            alt="Logo oficial de Nommade bebidas"
+            width="50"
+            class="me-2"
+          />
+          NOMMADE
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a href="/tienda" class="nav-link">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a href="/nosotros" class="nav-link">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a href="/compras" class="nav-link"
+                ><i class="fa-solid fa-cart-arrow-down"></i
+                ><span id="contador-carrito">0</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="/login"
+                class="nav-link btn-cerrar-sesion"
+                id="cerrar-sesion"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
 
     <!-- Contenido de la página -->
-    <main class="py-5">
+    <main class="py-5 bg-black">
       <div class="container">
-        <h1 class="text-center text-warning fw-bold display-4 mb-5">FINALIZAR PAGO</h1>
+        <h1 class="text-center text-warning fw-bold display-4 mb-5">
+          FINALIZAR PAGO
+        </h1>
 
         <div class="row g-4 justify-content-center">
-           <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6">
             <div class="card h-100 bg-dark border-warning shadow-lg p-4">
               <h2
                 class="h3 text-warning mb-4 border-bottom border-warning pb-2"
@@ -125,7 +134,8 @@
                 <a
                   href="https://wa.me/5493416150496?text=Hola!%20Acabo%20de%20realizar%20la%20transferencia%20para%20mi%20pedido%20Nommade"
                   target="_blank"
-                  class="btn btn-success btn-lg py-3 fw-bold shadow" onclick="pedido()"
+                  class="btn btn-success btn-lg py-3 fw-bold shadow"
+                  onclick="pedido()"
                 >
                   <i class="bi bi-whatsapp me-2"></i>ENVIAR COMPROBANTE
                 </a>
@@ -141,18 +151,23 @@
               </p>
             </div>
           </div>
-
         </div>
-
       </div>
     </main>
 
     <!-- Por último, el pie de página -->
-    <footer class="container-fluid bg-dark text-light py-5 border-top border-warning">
+    <footer
+      class="container-fluid bg-dark text-light py-5 border-top border-warning"
+    >
       <div class="container">
         <div class="row gy-4">
           <div class="col-12 text-center mb-4">
-            <img src="../public/logo-nommade.png" alt="Logo oficial de Nommade bebidas" width="180" class="border border-warning shadow" />
+            <img
+              src="../public/logo-nommade.png"
+              alt="Logo oficial de Nommade bebidas"
+              width="180"
+              class="border border-warning shadow"
+            />
           </div>
           <div class="col-sm-12 col-md-4 text-center">
             <h5 class="text-warning fw-bold mb-3">CONTACTOS</h5>

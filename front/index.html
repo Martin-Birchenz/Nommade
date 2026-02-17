@@ -1,11 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nommade | Venta de bebidas</title>
-    <meta name="description" content="En Nommade seleccionamos las etiquetas más exclusivas de bebidas.">
-    <link rel="icon" href="./public/logo-nommade.png">
+    <meta
+      name="description"
+      content="En Nommade seleccionamos las etiquetas más exclusivas de bebidas."
+    />
+    <link rel="icon" href="./public/logo-nommade.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,109 +21,97 @@
       href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
   </head>
-  
+
   <body>
-    <!-- Header -->
-    <header>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <!-- Logo y título -->
-          <a href="index.html" class="navbar-brand">
-            <img src="./public/logo-nommade.png" alt="Logo oficial de Nommade bebidas" width="80"/>
-            NOMMADE
-          </a>
+    <!-- Header y barra de navegación -->
 
-          <!-- Botón hamburguesa -->
-          <button
-            class="navbar-toggler bg-warning"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menuNommade"
-            aria-controls="menuNommade"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-           <div
-            class="collapse navbar-collapse justify-content-end"
-            id="menuNommade">
-
-          <!--Menú de navegación -->
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a href="./pages/tienda.html" class="nav-link">Productos</a>
-              </li>
-              <li class="nav-item">
-                <a href="./pages/nosotros.html" class="nav-link">Nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a href="./pages/compras.html" class="nav-link"><i class="fa-solid fa-cart-arrow-down"></i><span id="contador-carrito">0</span></a>
-              </li>
-              <li class="nav-item">
-                <a href="../front/pages/sesion/login.html" class="nav-link btn btn-warning" id="cerrar-sesion">Cerrar sesión</a>
-              </li>
-            </ul>
-          
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a href="/" class="navbar-brand fw-bold">
+          <img
+            src="./public/logo-nommade.png"
+            alt="Logo oficial de Nommade bebidas"
+            width="50"
+            class="me-2"
+          />
+          NOMMADE
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a href="/tienda" class="nav-link">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a href="/nosotros" class="nav-link">Nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a href="/compras" class="nav-link"
+                ><i class="fa-solid fa-cart-arrow-down"></i
+                ><span id="contador-carrito">0</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="/login"
+                class="nav-link btn-cerrar-sesion"
+                id="cerrar-sesion"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+
+    <header class="hero-section">
+      <div class="container">
+        <h1 class="tracking-tight">Tu éxito es nuestro <span>brindis</span></h1>
+        <p class="lead fs-2">
+          En Nommade, seleccionamos las etiquetas más selectas para momentos
+          inolvidables.
+        </p>
+      </div>
     </header>
 
     <!-- Contenido de la página -->
-    <main class="container-fluid">
-      <!-- Primera sección, la idea es dar una introducción con una imágen y un título -->
-      <section class="container py-5">
-        <div class="card bg-dark border-warning">
-          <div class="row g-0 align-items-center">
-            <div class="col-sm-12 col-md-4 d-flex justify-content-center p-4">
-              <img
-                src="./public/imagen-principal-nommade.jpg"
-                class="img-fluid"
-                alt="Imagen principal de Nommade: Selección de bebidas"
-              />
-            </div>
+    <main class="container-fluid bg-black">
+      <!-- Segunda sección, productos, ya que la primera la transformé en hero section! -->
+      <section class="container section-padding">
+        <h2>Algunos de nuestros productos Nommade</h2>
 
-            <div class="col-sm-12 col-md-8">
-              <div class="card-body p-4">
-                <h1 class="card-title text-warning display-6 fw-bold">
-                  Tu éxito es nuestro brindis
-                </h1>
-                <p class="card-text fs-5 text-light fw-bold">
-                  En Nommade, nos apasiona acercar las etiquetas más selectas a
-                  nuestros clientes.
-                </p>
-                <p class="card-text fs-5 fw-bold">
-                  Un compromiso total con la puntualidad.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Segunda sección, productos -->
-      <section class="container py-5">
-        <h2 class="text-center text-warning fw-bold fs-1 mb-5">Algunos de nuestros productos Nommade</h2>
-
-        <div class="row g-4 justify-content-center" id="productos-container-inicio"></div>
+        <div class="row" id="productos-container-inicio"></div>
 
         <div class="col-12 text-center mt-5">
-          <a href="./pages/tienda.html" class="btn btn-warning px-5 fw-bold w-auto">Ver más productos...</a>
+          <a href="/tienda" class="btn btn-custom"
+            >Ver más productos...</a
+          >
         </div>
       </section>
 
       <!-- Tercera sección, las promos de Nommade -->
-      <section>
-        <h2 class="text-center py-4 fw-bold fs-1 text-warning">
-          Nuestras promociones Nommade
-        </h2>
+      <section class="promo-section">
+        <h2>Nuestras promociones Nommade</h2>
         <div class="container table-responsive">
           <table
             class="table table-dark table-hover align-middle border-warning"
@@ -132,14 +123,13 @@
                 <th scope="col" class="py-3 px-4 text-center"></th>
               </tr>
             </thead>
-            <tbody id="tabla-promos">
-            </tbody>
+            <tbody id="tabla-promos"></tbody>
           </table>
         </div>
       </section>
 
-      <!-- Cuarta sección, las novedades que te trae Nommade --> 
-      <section class="container py-5">
+      <!-- Cuarta sección, las novedades que te trae Nommade -->
+      <section class="container py-5 novedades-section">
         <div class="row justify-content-center">
           <div class="col-12 col-lg-10">
             <div
@@ -248,52 +238,89 @@
       </section>
 
       <!-- Cuarta sección, formulario para que el cliente envíe su consulta -->
-      <section class="container mt-5 py-5 border-top border-warning">
+      <section class="container section-padding">
         <div class="row justify-content-center">
           <div class="col-12 col-md-8 col-lg-6">
-             <h2 class="text-center text-warning fw-bold mb-4">
-               Contáctanos, te responderemos a la brevedad.
-             </h2>
-            <form id="form-consulta" class="p-4 bg-dark rounded border border-warning shadow">
+            <h2>Contáctanos, te responderemos a la brevedad.</h2>
+            <form class="custom-form" id="form-consulta">
+              <div class="mb-3">
+                <label class="form-label" for="name">Nombre y apellido:</label>
+                <input
+                  class="form-control"
+                  id="name"
+                  type="text"
+                  placeholder="Ingresa tu nombre y apellido"
+                  required
+                />
+              </div>
 
-            <div class="mb-3">
-              <label class="form-label text-warning fw-bold" for="name">Nombre y apellido:</label>
-              <input class="form-control bg-transparent text-light border-secondary" id="name" type="text" placeholder="Ingresa tu nombre y apellido" required/>
-            </div>
+              <div class="mb-3">
+                <label class="form-label" for="email"
+                  >Correo electrónico:</label
+                >
+                <input
+                  class="form-control"
+                  id="email"
+                  type="email"
+                  placeholder="Ingresa tu correo electrónico"
+                  required
+                />
+              </div>
 
-            <div class="mb-3">
-              <label class="form-label text-warning fw-bold" for="email">Correo electrónico:</label>
-              <input class="form-control bg-transparent text-light border-secondary" id="email" type="email" placeholder="Ingresa tu correo electrónico" required/>
-            </div>
+              <div class="mb-3">
+                <label class="form-label" for="number"
+                  >Número de teléfono:</label
+                >
+                <input
+                  class="form-control"
+                  id="number"
+                  type="tel"
+                  placeholder="Ingresa tu número de teléfono"
+                />
+              </div>
 
-            <div class="mb-3">
-              <label class="form-label text-warning fw-bold" for="number">Número de teléfono:</label>
-              <input class="form-control bg-transparent text-light border-secondary" id="number" type="tel" placeholder="Ingresa tu número de teléfono" />
-            </div>
+              <div class="mb-4">
+                <label class="form-label" for="consulta"
+                  >Describe tu consulta:</label
+                >
+                <textarea
+                  class="form-control"
+                  id="consulta"
+                  rows="4"
+                  placeholder="Escribe tu mensaje aquí..."
+                ></textarea>
+              </div>
 
-            <div class="mb-4">
-              <label class="form-label text-warning fw-bold" for="consulta">Describe tu consulta:</label>
-              <textarea class="form-control bg-transparent text-light border-secondary" id="consulta" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
-            </div>
-
-            <div class="text-center">
-              <button type="submit" class="btn btn-warning fw-bold px-5 py-2 w-auto">Enviar Mensaje</button>
-            </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-custom"
+                >
+                  Enviar Mensaje
+                </button>
+              </div>
             </form>
           </div>
-        </div>        
+        </div>
       </section>
     </main>
 
     <!-- Por último, el pie de página -->
-    <footer class="container-fluid bg-dark text-light py-5 border-top border-warning">
+    <footer
+      class="container-fluid bg-dark text-light py-5 border-top border-warning"
+    >
       <div class="container">
         <div class="row gy-4">
           <div class="col-12 text-center mb-4">
-            <img src="./public/logo-nommade.png" alt="Logo oficial de Nommade bebidas" width="180" class="border border-warning shadow" />
+            <img
+              src="./public/logo-nommade.png"
+              alt="Logo oficial de Nommade bebidas"
+              width="180"
+              class="border border-warning shadow"
+            />
           </div>
           <div class="col-sm-12 col-md-4 text-center">
-            <h5 class="text-warning fw-bold mb-3">CONTACTOS</h5>
+            <h5 class= mb-3">CONTACTOS</h5>
             <p class="mb-1">
               <a
                 href="https://instagram.com/nommadedrinks"
@@ -341,13 +368,12 @@
     <!-- Script de Bootstrap y otros -->
 
     <script src="./js/productos/productosInicio.js"></script>
-    <script src="./js/productos/promos.js" ></script>
+    <script src="./js/productos/promos.js"></script>
     <script src="./js/productos/carrito.js"></script>
     <script src="./js/sesion/logout.js"></script>
-    <script src="./js/consultas.js" ></script>
+    <script src="./js/consultas.js"></script>
 
-
-     <script
+    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"

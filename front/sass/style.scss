@@ -1,7 +1,10 @@
-$black-color: black;
 $hover-color: rgb(158, 164, 178);
-$gold-color: #c9a83f;
-$font-main: "Source Serif 4", serif;
+$gold: #d4af37;
+$black: #1a1a1a;
+$white: #f9f9f9;
+$grey: #4a4a4a;
+$title: "Source Serif 4", serif;
+$text: "Inter", sans-serif;
 
 @mixin hover-effect {
   color: $hover-color;
@@ -9,96 +12,206 @@ $font-main: "Source Serif 4", serif;
 }
 
 body {
-  font-family: $font-main;
-  header {
-    color: $gold-color;
-    background-color: $black-color;
-    border-bottom: 3px solid $gold-color;
-    nav {
-      .navbar-brand {
-        color: $gold-color;
-        font-weight: bold;
+  font-family: $text;
+  background-color: $black;
+  color: $white;
 
-        &:hover {
-          @include hover-effect;
-        }
+  .navbar {
+    transition: all 0.4s ease;
+    border-bottom: 1px solid $gold;
 
-        @media (min-width: 768px) {
-          font-size: 40px;
-        }
-        @media (min-width: 992px) {
-          font-size: 50px;
-        }
+    .navbar-brand {
+      font-family: $title;
+      letter-spacing: 2px;
+      color: $gold;
+      &:hover {
+        opacity: 0.7;
       }
+    }
 
-      ul {
-        gap: 20px;
-        .nav-link {
-          font-size: 25px;
-          font-weight: bold;
-          color: $gold-color;
-          &:hover {
-            @include hover-effect;
-          }
-        }
+    .nav-link {
+      text-transform: uppercase;
+      color: $white;
+      font-weight: bold;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+
+      &:hover {
+        opacity: 0.7;
+        color: $gold;
       }
+    }
+
+    .btn-cerrar-sesion {
+      color: $white;
+      padding: 6px;
+      transition: all 0.4s;
+      border-radius: 3px;
+      &:hover {
+        background-color: $gold;
+        color: $black;
+      }
+    }
+  }
+
+  .bg-black {
+    background-color: $black;
+  }
+
+  .bg-grey {
+    background-color: $grey;
+  }
+
+  .hero-section {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("../public/imagen-principal-nommade.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    h1 {
+      font-family: $title;
+      font-weight: 700;
+      font-size: 4rem;
+      color: $white;
+      span {
+        color: $gold;
+      }
+    }
+
+    p {
+      font-family: $title;
+      color: $white;
+      font-weight: 300;
+      letter-spacing: 2px;
     }
   }
 
   main {
-    background-color: $black-color;
-
-    table .thead-th {
-      background-color: $gold-color;
+    #productos-container {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease;
+      }
     }
 
-    .btn-warning:hover {
-      background-color: $hover-color;
-      transition: 0.2s ease;
-      border-color: $hover-color;
+    h1 {
+      font-family: $title;
+      color: $gold;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      text-transform: uppercase;
     }
 
-    section {
-      border-bottom: 2px solid $gold-color;
-      padding-bottom: 30px;
+    h2 {
+      font-family: $title;
+      color: $gold;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
 
-      .custom-caption {
-        h4 {
-          font-size: 1.2rem;
+    p {
+      font-family: $title;
+      color: $white;
+      font-weight: 300;
+      letter-spacing: 2px;
+    }
 
-          @media (min-width: 768px) {
-            font-size: 2rem;
-          }
-        }
-        p {
-          font-size: 0.9rem;
+    .section-padding {
+      padding: 100px 0;
+    }
 
-          @media (min-width: 768px) {
-            font-size: 1.25rem;
-          }
-        }
+    .btn-custom {
+      padding: 10px;
+      border: none;
+      color: $gold;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.4s;
+      border-radius: 3px;
+      text-transform: uppercase;
+      &:hover {
+        background-color: $gold;
+        color: $black;
+      }
+    }
+
+    .novedades-section {
+      h4 {
+        font-family: $title;
+        color: $gold;
+        font-weight: 700;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-family: $title;
+        color: $white;
+        font-weight: 400;
+      }
+    }
+
+    .custom-form {
+      background-color: $black;
+      padding: 3rem;
+      border: 1px solid $gold;
+
+      .form-control {
+        border-bottom: 2px solid $white;
+        color: $black;
+        padding: 12px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
       }
 
       label {
-        font-size: 25px;
+        color: $gold;
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        font-weight: 500;
       }
-    }
-
-    .card {
-      color: $gold-color;
-      background-color: $black-color;
     }
   }
 
   footer {
-    color: $gold-color;
-    background-color: $black-color;
-    border-top: 2px solid $gold-color;
+    color: $white;
+    background-color: $black;
+    border-top: 2px solid $gold;
     padding-top: 20px;
-    div {
-      h1 {
-        font-size: 30px;
+
+    .footer-link {
+      transition: color 0.3 ease;
+      &:hover {
+        color: $gold;
       }
+    }
+
+    img {
+      filter: grayscale(0.5);
+      transition: 0.5s;
+    }
+
+    h5 {
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 8px;
     }
   }
 }

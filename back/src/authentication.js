@@ -34,11 +34,11 @@ async function login(req, res) {
     const token = jsonWebToken.sign(
       { user: usuario.user },
       process.env.JWT_SECRET,
-      { expiresIn: process.env.JWT_EXP },
+      { expiresIn: "1d" },
     );
 
     const cookieOption = {
-      expires: new Date(Date.now() + expira * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
       path: "/",
       httpOnly: true,
       sameSite: "lax",
@@ -47,12 +47,14 @@ async function login(req, res) {
 
     console.log("Seteando cookie con opciones: ", cookieOption);
 
+    console.log("Cookie seteada correctamente para: ", usuario.user);
+
     res.cookie("jwt", token, cookieOption);
 
     res.send({
       status: "ok",
       message: "Usuario loggeado",
-      redirect: "../../index.html",
+      redirect: "/",
     });
   } catch (error) {
     res.status(500).send({ status: "Error", message: "Error en el servidor" });
@@ -94,11 +96,11 @@ async function register(req, res) {
     const expira = parseInt(process.env.JWT_COOKIE_EXP) || 1;
 
     const token = jsonWebToken.sign({ user: user }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXP,
+      expiresIn: "1d",
     });
 
     const cookieOption = {
-      expires: new Date(Date.now() + expira * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
       path: "/",
       httpOnly: true,
       sameSite: "lax",
@@ -112,7 +114,7 @@ async function register(req, res) {
     return res.status(201).send({
       status: "ok",
       message: "Usuario agregado",
-      redirect: "../../index.html",
+      redirect: "/",
     });
   } catch (error) {
     console.log(error);

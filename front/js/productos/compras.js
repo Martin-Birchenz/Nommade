@@ -69,7 +69,7 @@ function crearTarjetasProductos() {
       });
     });
   } else {
-    contenedorTarjetas.innerHTML = ` <p id="carrito-vacio" class="text-center text-warning fw-bold fs-1">¡El carrito está vacío! Agrega productos</p> `;
+    contenedorTarjetas.innerHTML = ` <p id="carrito-vacio" class="text-center fw-bold fs-3">¡El carrito está vacío! Agrega productos</p> `;
   }
 }
 

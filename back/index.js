@@ -8,7 +8,6 @@ import { fileURLToPath } from "url";
 import { getConnection } from "./db/database.js";
 import { methods as authentication } from "./src/authentication.js";
 import { methods as authorization } from "./src/authorization.js";
-import { get } from "http";
 
 dotenv.config({ debug: true });
 const app = express();
@@ -33,7 +32,18 @@ app.use(
   }),
 );
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "../front")));
+// app.use(express.static(path.join(__dirname, "../front")));
+app.use("/style", express.static(path.join(__dirname, "../front/style")));
+app.use("/js", express.static(path.join(__dirname, "../front/js")));
+app.use("/public", express.static(path.join(__dirname, "../front/public")));
+app.use(
+  "/pages/sesion",
+  express.static(path.join(__dirname, "../front/pages/sesion")),
+);
+app.use((req, res, next) => {
+  console.log(`Petición recibida: ${req.method} ${req.url}`);
+  next();
+});
 
 // Puerto
 const PORT = process.env.PORT;
@@ -43,12 +53,34 @@ app.listen(PORT, () => {
 });
 
 // Rutas
-app.get("/", authorization.publico, async (req, res) => {});
+app.get("/", authorization.admin, async (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/index.html"));
+});
 
-app.get("/productos", async (req, res) => {
+app.get("/productos", authorization.admin, async (req, res) => {
   const connection = await getConnection();
   const result = await connection.query("SELECT * from productosnommade");
   res.json(result);
+});
+
+app.get("/tienda", authorization.admin, (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/tienda.html"));
+});
+
+app.get("/nosotros", authorization.admin, (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/nosotros.html"));
+});
+
+app.get("/pagos", authorization.admin, (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/pagos.html"));
+});
+
+app.get("/compras", authorization.admin, (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/compras.html"));
+});
+
+app.get("/pagos", authorization.admin, (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/pagos.html"));
 });
 
 app.get("/productosInicio", async (req, res) => {
@@ -73,11 +105,11 @@ app.post("/carrito/comprar", async (req, res) => {
   }
 });
 
-app.get("/login", (req, res) => {
+app.get("/login", authorization.publico, (req, res) => {
   res.sendFile(path.join(__dirname, "../front/pages/sesion/login.html"));
 });
 
-app.get("/register", (req, res) => {
+app.get("/register", authorization.publico, (req, res) => {
   res.sendFile(path.join(__dirname, "../front/pages/sesion/register.html"));
 });
 
