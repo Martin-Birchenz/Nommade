@@ -1,4 +1,5 @@
 import express from "express";
+import fs from "fs";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -9,7 +10,7 @@ import { getConnection } from "./db/database.js";
 import { methods as authentication } from "./src/authentication.js";
 import { methods as authorization } from "./src/authorization.js";
 
-// dotenv.config({ debug: true });
+dotenv.config();
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +21,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(
   cors({
-    origin: true,
+    origin: process.env.PUBLIC_URL || true,
     credentials: true,
   }),
 );
