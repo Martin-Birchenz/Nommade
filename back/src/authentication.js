@@ -63,6 +63,7 @@ async function login(req, res) {
     });
   } catch (error) {
     res.status(500).send({ status: "Error", message: "Error en el servidor" });
+    console.log(error);
   }
 }
 
