@@ -26,7 +26,7 @@ loginForm.addEventListener("submit", async (e) => {
       return;
     }
     const resJson = await res.json();
-    console.log("Respuesta del servidor: ", res.json);
+    console.log("Respuesta del servidor: ", resJson);
     if (resJson.redirect) {
       window.location.href = resJson.redirect;
     }
