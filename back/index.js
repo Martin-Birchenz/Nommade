@@ -9,7 +9,7 @@ import { getConnection } from "./db/database.js";
 import { methods as authentication } from "./src/authentication.js";
 import { methods as authorization } from "./src/authorization.js";
 
-dotenv.config({ debug: true });
+// dotenv.config({ debug: true });
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +20,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.PUBLIC_URL || true,
+    origin: true,
     credentials: true,
   }),
 );
