@@ -42,7 +42,11 @@ app.use((req, res, next) => {
 // Puerto
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("---------------------------------------");
+  console.log(`  NOMMADE DESPLEGADO CON ÉXITO        `);
+  console.log(`  Puerto: ${PORT}                     `);
+  console.log("---------------------------------------");
   console.log(`Listening in port ${PORT}! http://localhost:${PORT}/login`);
 });
 
