@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Listening in port ${PORT}! http://localhost:3000/login`);
+  console.log(`Listening in port ${PORT}! http://localhost:${PORT}/login`);
 });
 
 // Rutas
