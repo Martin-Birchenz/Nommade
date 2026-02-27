@@ -9,6 +9,9 @@ async function login(req, res) {
   const email = req.body.email;
   const password = req.body.password;
 
+  console.log("INTENTO DE LOGIN");
+  console.log("EMAIL RECIBIDO: ", email);
+
   if (!email || !password) {
     return res
       .status(400)
@@ -16,7 +19,9 @@ async function login(req, res) {
   }
 
   try {
+    console.log("CONECTANDO A LA BASE DE DATOS");
     const connection = await getConnection();
+    console.log("CONEXIÓN EXITOSA");
     const usuarios = await connection.query(
       "SELECT * FROM usuariosnommade WHERE email = ?",
       [email],
