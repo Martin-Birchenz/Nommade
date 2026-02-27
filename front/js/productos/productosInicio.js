@@ -27,7 +27,7 @@ function crearTarjetasProductosInicio(productos) {
 
 async function cargarBebidasInicio() {
   try {
-    const res = await fetch("http://localhost:3000/productosInicio");
+    const res = await fetch("/productosInicio");
     const productos = await res.json();
     crearTarjetasProductosInicio(productos);
   } catch (error) {

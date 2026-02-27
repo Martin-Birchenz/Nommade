@@ -32,7 +32,7 @@ function crearTarjetasProductos(productos) {
 // Función para obtener los datos del servidor
 async function cargarBebidas() {
   try {
-    const res = await fetch("http://localhost:3000/productos"); // Reclamamos los datos
+    const res = await fetch("/productos"); // Reclamamos los datos
     const productos = await res.json(); // Convertimos la respuesta en formato JSON
     crearTarjetasProductos(productos);
   } catch (error) {
