@@ -36,14 +36,14 @@ async function login(req, res) {
 
     const expira = parseInt(process.env.JWT_COOKIE_EXP) || 1;
 
-    const token = jsonWebToken.sign(
-      { user: usuario.user },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" },
-    );
+    const secret = process.env.JWT_SECRET || "secreto";
+
+    const token = jsonWebToken.sign({ user: usuario.user }, secret, {
+      expiresIn: "1d",
+    });
 
     const cookieOption = {
-      expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
+      expires: new Date(Date.now() + expira * 24 * 60 * 60 * 1000),
       path: "/",
       httpOnly: true,
       sameSite: "none",
