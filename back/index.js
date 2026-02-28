@@ -20,7 +20,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://nommade-production.up.railway.app",
+    origin: process.env.PUBLIC_URL,
     credentials: true,
   }),
 );
