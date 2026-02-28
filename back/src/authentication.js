@@ -77,7 +77,7 @@ async function register(req, res) {
   try {
     const connection = await getConnection();
 
-    const usuarioExiste = await connection.query(
+    const [usuarioExiste] = await connection.query(
       "SELECT * FROM usuariosnommade WHERE user = ?",
       [user],
     );

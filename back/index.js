@@ -52,7 +52,7 @@ app.get("/", authorization.admin, async (req, res) => {
 
 app.get("/productos", authorization.admin, async (req, res) => {
   const connection = await getConnection();
-  const result = await connection.query("SELECT * from productosnommade");
+  const [result] = await connection.query("SELECT * from productosnommade");
   res.json(result);
 });
 
@@ -78,7 +78,7 @@ app.get("/pagos", authorization.admin, (req, res) => {
 
 app.get("/productosInicio", async (req, res) => {
   const connection = await getConnection();
-  const result = await connection.query(
+  const [result] = await connection.query(
     "SELECT * FROM productosnommade LIMIT 3",
   );
   res.json(result);
@@ -86,7 +86,7 @@ app.get("/productosInicio", async (req, res) => {
 
 app.get("/promociones", async (req, res) => {
   const connection = await getConnection();
-  const result = await connection.query("SELECT * FROM promocionesnommade");
+  const [result] = await connection.query("SELECT * FROM promocionesnommade");
   res.json(result);
 });
 
