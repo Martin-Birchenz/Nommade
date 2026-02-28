@@ -7,6 +7,7 @@ document.getElementById("cerrar-sesion").addEventListener("click", async () => {
     credentials: "include",
   });
   if (res.ok) {
+    localStorage.removeItem("Bebidas");
     window.location.href = "/pages/sesion/login.html";
   }
 });
