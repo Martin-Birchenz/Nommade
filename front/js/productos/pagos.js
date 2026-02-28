@@ -13,8 +13,9 @@ function pedido() {
   memoria.forEach((producto) => {
     const tipoNombre = producto.nombre || producto.promo;
     const subtotal = producto.precio * producto.cantidad;
+    const subTotalPrecio = Number(subtotal).toLocaleString("es-ar");
     mensaje += `-${tipoNombre} --- Cantidad del producto: ${producto.cantidad}%0A`;
-    total += subtotal;
+    total += subTotalPrecio;
   });
 
   mensaje += `Total a pagar: $${total}`;

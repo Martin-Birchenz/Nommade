@@ -39,6 +39,10 @@ function crearTarjetasProductos() {
     productos.forEach((producto) => {
       const tipoNombre = producto.nombre || producto.promo;
 
+      const precio = Number(producto.precio).toLocaleString("es-ar");
+      const cantidadCuenta = producto.cantidad * producto.precio;
+      const cantidad = Number(cantidadCuenta).toLocaleString("es-ar");
+
       // Creamos un tr para cada producto
       const filaProducto = document.createElement("tr");
       // Le agregamos el html correspondiente
@@ -47,8 +51,8 @@ function crearTarjetasProductos() {
             <td class="text-center"><button class="restar">-</button> <span class="cantidad"> ${
               producto.cantidad
             } </span> <button class="sumar">+</button></td>
-            <td class="text-end">$${producto.precio}</td>
-            <td class="text-end">$${producto.cantidad * producto.precio}</td>
+            <td class="text-end">$${precio}</td>
+            <td class="text-end">$${cantidad}</td>
         `;
 
       // Agregamos el html correspondiente
@@ -85,8 +89,10 @@ function actualizar() {
 
   const precioElement = document.getElementById("precio");
 
+  const precio = Number(precioTotal).toLocaleString("es-ar");
+
   if (precioElement) {
-    precioElement.innerText = `$${precioTotal}`;
+    precioElement.innerText = `$${precio}`;
   }
 }
 
