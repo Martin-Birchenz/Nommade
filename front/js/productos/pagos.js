@@ -8,6 +8,7 @@ function pedido() {
 
   const telefono = "+5493435618314";
   let mensaje = "¡Hola! Me gustaría realizar el siguiente pedido Nommade:%0A";
+  let total = 0;
 
   memoria.forEach((producto) => {
     const tipoNombre = producto.nombre || producto.promo;
