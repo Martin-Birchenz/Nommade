@@ -22,7 +22,7 @@ async function login(req, res) {
     console.log("CONECTANDO A LA BASE DE DATOS");
     const connection = await getConnection();
     console.log("CONEXIÓN EXITOSA");
-    const usuarios = await connection.query(
+    const [usuarios] = await connection.query(
       "SELECT * FROM usuariosnommade WHERE email = ?",
       [email],
     );
