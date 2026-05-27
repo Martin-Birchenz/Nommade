@@ -11,7 +11,12 @@ const pool = mysql.createPool({
     port: parseInt(process.env.DB_PORT || process.env.MYSQLPORT || 3306),
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+    ssl: {
+      rejectUnauthorized: false
+    },
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 10000
 })
 
 export async function getConnection() {
